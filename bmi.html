@@ -30,6 +30,12 @@
     }
     #wynik {
       font-size: 50px;
+      width: 70%;
+      height: 50px;
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      white-space: pre-line;
     }
   </style>
   <script>
@@ -42,8 +48,11 @@
       console.log(bmi);
       const wynik = document.querySelector("#wynik");
       wynik.textContent = bmi.toFixed(2);
-      if (bmi > 25) {
-        wynik.textContent = bmi.toFixed(2) + " JESTES OTYLY/A";
+      if (bmi > 5) {
+        wynik.textContent = bmi.toFixed(2) + "\nJESTES OTYLY/A";
+        const i = document.createElement("img");
+        i.src = "damian.jpg";
+        wynik.appendChild(i);
       }
     }
   </script>
