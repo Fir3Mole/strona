@@ -1,0 +1,67 @@
+<head>
+  <style>
+    body {
+      background-color: gray;
+      padding: 50px;
+    }
+    .all {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 50px;
+    }
+    .naglowek {
+      font-size: 40px;
+      font-weight: bold;
+    }
+    .inputs {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .oblicz {
+      background-color: blue;
+      color: white;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      font-size: 30px;
+    }
+    #wynik {
+      font-size: 50px;
+    }
+  </style>
+  <script>
+    function oblicz() {
+      const kg = Number(document.querySelector("#masa").value);
+      const cm = Number(document.querySelector("#wzrost").value);
+      console.log(kg + cm);
+      const m = cm / 100;
+      const bmi = kg / (m * m);
+      console.log(bmi);
+      const wynik = document.querySelector("#wynik");
+      wynik.textContent = bmi.toFixed(2);
+      if (bmi > 25) {
+        wynik.textContent = bmi.toFixed(2) + " JESTES OTYLY";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="all">
+    <div class="naglowek">Kalkulator BMI</div>
+    <div class="inputs">
+      <div class="masa">
+        <div class="tytul">masa w kg</div>
+        <input id="masa" />
+      </div>
+      <div class="wzrost">
+        <div class="tytul">wzrost cm</div>
+        <input id="wzrost" />
+      </div>
+    </div>
+    <button onclick="oblicz()" class="oblicz">Oblicz</button>
+    <div id="wynik"></div>
+  </div>
+</body>
